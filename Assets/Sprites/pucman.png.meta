@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 44fa1c882d8774cd1851ec943e52205a
+guid: 8c093db871f2240a285558cf47a7db25
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3015710083530981091
-    second: maze_0
+      213: 4764264823760480892
+    second: pucman_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: maze_0
+      name: pucman_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 3
-        width: 226
-        height: 250
+        x: 10
+        y: 13
+        width: 13
+        height: 12
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3ee7d62d754f9d920800000000000000
-      internalID: 3015710083530981091
+      spriteID: c7ae1247d911e1240800000000000000
+      internalID: 4764264823760480892
       vertices: []
       indices: 
       edges: []
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      maze_0: 3015710083530981091
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
