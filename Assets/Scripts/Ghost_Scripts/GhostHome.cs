@@ -40,9 +40,7 @@ public class GhostHome : GhostBehavior
 
         while (elapsed < duration)
         {
-            Vector3 newPosition = Vector3.Lerp(position, this.inside.position, elapsed / duration);
-            newPosition.z = position.z;
-            this.ghost.transform.position = position;
+            ghost.SetPosition(Vector3.Lerp(position, inside.position, elapsed / duration));
             elapsed += Time.deltaTime;
             yield return null;
         }
@@ -51,9 +49,7 @@ public class GhostHome : GhostBehavior
 
         while (elapsed < duration)
         {
-            Vector3 newPosition = Vector3.Lerp(this.inside.position, this.outside.position, elapsed / duration);
-            newPosition.z = position.z;
-            this.ghost.transform.position = position;
+            ghost.SetPosition(Vector3.Lerp(inside.position, outside.position, elapsed / duration));
             elapsed += Time.deltaTime;
             yield return null;
         }
