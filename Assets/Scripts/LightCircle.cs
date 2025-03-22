@@ -2,20 +2,29 @@ using UnityEngine;
 
 public class LightCircle : MonoBehaviour
 {
-    private float radius = 20f;
-    [SerializeField] float shrinkSpeed = 2.5f;
-    [SerializeField] float growAmount = 1f;
+    private float radius;
+    private float shrinkVelocity = 0;
+    [SerializeField] float startRadius = 20f;
+    [SerializeField] float maxShrinkVelocity = 10;
+    [SerializeField] float shrinkAcceleration = 1;
+    [SerializeField] float onEatGrowVelocity = 10;
     [SerializeField] float maxRadius = 35.0f;
     [SerializeField] float minRadius = 5.0f;
 
+    void Start()
+    {
+           radius = startRadius;
+    }
+
     void Update()
     {
-        radius = Mathf.Max(radius - (shrinkSpeed * Time.deltaTime), minRadius);
+        shrinkVelocity = Mathf.Min(shrinkVelocity + (shrinkAcceleration * Time.deltaTime), maxShrinkVelocity);
+        radius = Mathf.Clamp(radius - (shrinkVelocity * Time.deltaTime), minRadius, maxRadius);
         transform.localScale = new Vector3(radius, radius, 1);
     }
 
     public void Grow()
     {
-        radius = Mathf.Min(radius + growAmount, maxRadius);
+        shrinkVelocity = -onEatGrowVelocity;
     }
 }
