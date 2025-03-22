@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1413049236415662363}
   - component: {fileID: 8718748852742240961}
   - component: {fileID: 5702427718112147109}
+  - component: {fileID: 7255114887875438927}
   m_Layer: 8
   m_Name: Pellet
   m_TagString: Untagged
@@ -134,3 +135,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7255114887875438927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8351412430205211422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2edc370421dd4ae3b835a3e944a0f00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points: 10
