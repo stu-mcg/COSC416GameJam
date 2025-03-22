@@ -5,6 +5,6 @@ public class PowerPellet : Pellet
     public float duration = 8.0f;
     protected override void Eat()
     {
-        FindFirstObjectByType<GameManager>().PowerPelletEaten(this);
+        GameManager.Instance.PowerPelletEaten(this);
     }
 }

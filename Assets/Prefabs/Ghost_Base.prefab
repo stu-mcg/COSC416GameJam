@@ -408,6 +408,7 @@ MonoBehaviour:
   eyes: {fileID: 8313363232070084333}
   blue: {fileID: 726972734708763975}
   white: {fileID: 2993332805131105532}
+  eaten: 0
 --- !u!1 &3231757220587890429
 GameObject:
   m_ObjectHideFlags: 0

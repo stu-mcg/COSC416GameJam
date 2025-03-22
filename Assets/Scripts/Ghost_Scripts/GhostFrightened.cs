@@ -7,7 +7,7 @@ public class GhostFrightened : GhostBehavior
     public SpriteRenderer blue;
     public SpriteRenderer white;
 
-    public bool eaten {  get; private set; }
+    public bool eaten;
 
     public override void Enable(float duration)
     {
