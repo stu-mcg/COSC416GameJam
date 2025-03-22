@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance { get; private set; }
+
     public Ghost[] ghosts;
     
     public Pacman pacman;
@@ -11,7 +13,19 @@ public class GameManager : MonoBehaviour
     public int score {get; private set;}
 
     public int lives {get; private set;}
-/*
+
+    public void Awake()
+    {
+        if (Instance != null)
+        {
+            DestroyImmediate(gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
+
     private void Start()
     {
         NewGame();
@@ -41,9 +55,9 @@ public class GameManager : MonoBehaviour
     private void ResetState()
     {
         for (int i = 0; i<this.ghosts.Length; i++) {
-            this.ghosts[i].gameObject.SetActive(true);
+            this.ghosts[i].ResetState();
         }
-        this.pacman.gameObject.SetActive(true);
+        this.pacman.ResetState();
     }
     private void GameOver()
     {
@@ -73,5 +87,5 @@ public class GameManager : MonoBehaviour
             GameOver();
         }
     }
-    */
+
 }
