@@ -11,24 +11,24 @@ public class GhostEyes : MonoBehaviour
 
     private void Awake()
     {
-        this.spriteRenderer = GetComponent<SpriteRenderer>();
-        this.movement = GetComponentInParent<Movement>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        movement = GetComponentInParent<Movement>();
     }
 
     private void Update()
     {
-        if (this.movement.direction == Vector2.up)
+        if (movement.direction == Vector2.up)
         {
-            this.spriteRenderer.sprite = this.up;
-        } else if (this.movement.direction == Vector2.down)
+            spriteRenderer.sprite = up;
+        } else if (movement.direction == Vector2.down)
         {
-            this.spriteRenderer.sprite = this.down;
-        } else if (this.movement.direction == Vector2.left)
+            spriteRenderer.sprite = down;
+        } else if (movement.direction == Vector2.left)
         {
-            this.spriteRenderer.sprite = this.left;
-        } else if (this.movement.direction == Vector2.right)
+            spriteRenderer.sprite = left;
+        } else if (movement.direction == Vector2.right)
         {
-            this.spriteRenderer.sprite = this.right;
+            spriteRenderer.sprite = right;
         }
     }
 }

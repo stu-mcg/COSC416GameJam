@@ -13,11 +13,11 @@ public class Ghost : MonoBehaviour
 
     private void Awake()
     {
-        this.movement = GetComponent<Movement>();
-        this.home = GetComponent<GhostHome>();
-        this.scatter = GetComponent<GhostScatter>();
-        this.chase = GetComponent<GhostChase>();
-        this.frightened = GetComponent<GhostFrightened>();
+        movement = GetComponent<Movement>();
+        home = GetComponent<GhostHome>();
+        scatter = GetComponent<GhostScatter>();
+        chase = GetComponent<GhostChase>();
+        frightened = GetComponent<GhostFrightened>();
     }
 
     private void Start()
@@ -27,21 +27,21 @@ public class Ghost : MonoBehaviour
 
     public void ResetState()
     {
-        this.gameObject.SetActive(true);
-        this.movement.ResetState();
+        gameObject.SetActive(true);
+        movement.ResetState();
 
-        this.frightened.Disable();
-        this.chase.Disable();
-        this.scatter.Enable();
+        frightened.Disable();
+        chase.Disable();
+        scatter.Enable();
 
-        if (this.home != this.initialBehavior)
+        if (home != initialBehavior)
         {
-            this.home.Disable();
+            home.Disable();
         }
 
-        if (this.initialBehavior != null)
+        if (initialBehavior != null)
         {
-            this.initialBehavior.Enable();
+            initialBehavior.Enable();
         }
     }
 

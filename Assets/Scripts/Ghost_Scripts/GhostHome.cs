@@ -29,9 +29,9 @@ public class GhostHome : GhostBehavior
 
     private IEnumerator ExitTransition()
     {
-        this.ghost.movement.SetDirection(Vector2.up, true);
-        this.ghost.movement.rb.bodyType = RigidbodyType2D.Kinematic;
-        this.ghost.movement.enabled = false;
+        ghost.movement.SetDirection(Vector2.up, true);
+        ghost.movement.rb.bodyType = RigidbodyType2D.Kinematic;
+        ghost.movement.enabled = false;
 
         Vector3 position = this.transform.position;
 
@@ -54,8 +54,8 @@ public class GhostHome : GhostBehavior
             yield return null;
         }
 
-        this.ghost.movement.SetDirection(new Vector2(Random.value < 0.5f ? -1.0f : 1.0f, 0.0f), true);
-        this.ghost.movement.rb.bodyType = RigidbodyType2D.Dynamic;
-        this.ghost.movement.enabled = true;
+        ghost.movement.SetDirection(new Vector2(Random.value < 0.5f ? -1.0f : 1.0f, 0.0f), true);
+        ghost.movement.rb.bodyType = RigidbodyType2D.Dynamic;
+        ghost.movement.enabled = true;
     }
 }
