@@ -8,10 +8,11 @@ public class GameManager : MonoBehaviour
 
     public Transform pellets;
 
+    public int ghostMultiplier {get; private set;} = 1;
+
     public int score {get; private set;}
 
     public int lives {get; private set;}
-/*
     private void Start()
     {
         NewGame();
@@ -40,6 +41,7 @@ public class GameManager : MonoBehaviour
         }
     private void ResetState()
     {
+        ResetGhostMultiplier();
         for (int i = 0; i<this.ghosts.Length; i++) {
             this.ghosts[i].gameObject.SetActive(true);
         }
@@ -61,7 +63,8 @@ public class GameManager : MonoBehaviour
     }
     public void GhostEaten(Ghost ghost)
     {
-        SetScore(this.score + ghost.points);
+        // SetScore(this.score + ghost.points * ghostMultiplier);
+        this.ghostMultiplier++;
     }
     public void PacmanEaten()
     {
@@ -73,5 +76,37 @@ public class GameManager : MonoBehaviour
             GameOver();
         }
     }
-    */
+
+    public void PelletEaten(Pellet pellet)
+    {
+        pellet.gameObject.SetActive(false);
+        SetScore(this.score + pellet.points);
+        if(!HasRemainingPellets())
+        {
+            this.pacman.gameObject.SetActive(false);
+            Invoke(nameof(NewRound), 3.0f);;
+        }
+    }
+
+    public void PowerPelletEaten(PowerPellet pellet)
+    {
+        PelletEaten(pellet);
+        CancelInvoke();
+        Invoke(nameof(ResetGhostMultiplier), pellet.duration);
+    }
+
+    private bool HasRemainingPellets()
+    {
+        foreach (Transform pellet in this.pellets){
+            if(gameObject.activeSelf)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private void ResetGhostMultiplier(){
+        ghostMultiplier = 1;
+    }
 }
