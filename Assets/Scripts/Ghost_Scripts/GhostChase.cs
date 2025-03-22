@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class GhostChase : GhostBehavior
 {
+    // all ghosts chase the same way
     private void OnDisable()
     {
         this.ghost.scatter.Enable();
