@@ -17,24 +17,5 @@ public class GhostBlinky : GhostBehavior
         }
     }
 
-    // find the shortest path to target position and chases it
-    protected void ChaseTarget(Vector3 targetPos, Node node)
-    {
-        Vector2 direction = Vector2.zero;
-        float minDistance = float.MaxValue;
-
-        foreach (Vector2 availableDirection in node.availableDirections)
-        {
-            Vector3 newPosition = transform.position + new Vector3(availableDirection.x, availableDirection.y, 0.0f);
-            float distance = (ghost.target.position - newPosition).sqrMagnitude;
-
-            if (distance < minDistance)
-            {
-                direction = availableDirection;
-                minDistance = distance;
-            }
-        }
-
-        ghost.movement.SetDirection(direction);
-    }
+    
 }

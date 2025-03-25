@@ -1,9 +1,14 @@
 using UnityEngine;
 
-public class GhostInky : GhostBlinky
+public class GhostInky : GhostBehavior
 {
     // Inky behavior
     [SerializeField] private int tilesBehind = 5;
+
+    private void OnDisable()
+    {
+        ghost.scatter.Enable();
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {

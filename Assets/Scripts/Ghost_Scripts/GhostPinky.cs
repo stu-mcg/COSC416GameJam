@@ -1,9 +1,14 @@
 using UnityEngine;
 
-public class GhostPinky : GhostBlinky
+public class GhostPinky : GhostBehavior
 {
     // Pinky behavior
     [SerializeField] private int tilesAhead = 5;
+
+    private void OnDisable()
+    {
+        ghost.scatter.Enable();
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
