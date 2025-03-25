@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -96,7 +97,7 @@ public class GameManager : MonoBehaviour
 
     public void PelletEaten(Pellet pellet)
     {
-        pellet.gameObject.SetActive(false);
+        pellet.StartRegenerateTimeout();
         SetScore(this.score + pellet.points);
         lightCircle.Grow();
         if(!HasRemainingPellets())
