@@ -5,18 +5,20 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
 
     public Ghost[] ghosts;
-    
+
     public Pacman pacman;
 
     public Transform pellets;
 
     public LightCircle lightCircle;
 
-    public int ghostMultiplier {get; private set;} = 1;
+    [SerializeField] private AudioClip startupSoundClip;
 
-    public int score {get; private set;}
+    public int ghostMultiplier { get; private set; } = 1;
 
-    public int lives {get; private set;}
+    public int score { get; private set; }
+
+    public int lives { get; private set; }
 
     public void Awake()
     {
@@ -33,11 +35,13 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         NewGame();
+        SoundFXManager.instance.PlaySoundFXClip(startupSoundClip, transform, 1f);
     }
 
     private void Update()
     {
-        if (this.lives <= 0 && Input.anyKeyDown){
+        if (this.lives <= 0 && Input.anyKeyDown)
+        {
             NewGame();
         }
     }
@@ -50,23 +54,26 @@ public class GameManager : MonoBehaviour
     }
 
     private void NewRound()
+    {
+        foreach (Transform pellet in this.pellets)
         {
-            foreach(Transform pellet in this.pellets){
-                pellet.gameObject.SetActive(true);
-            }
-            ResetState();
+            pellet.gameObject.SetActive(true);
         }
+        ResetState();
+    }
     private void ResetState()
     {
         ResetGhostMultiplier();
-        for (int i = 0; i<this.ghosts.Length; i++) {
+        for (int i = 0; i < this.ghosts.Length; i++)
+        {
             this.ghosts[i].ResetState();
         }
         this.pacman.ResetState();
     }
     private void GameOver()
     {
-        for (int i=0; i < this.ghosts.Length; i++){
+        for (int i = 0; i < this.ghosts.Length; i++)
+        {
             this.ghosts[i].gameObject.SetActive(false);
         }
         this.pacman.gameObject.SetActive(false);
@@ -75,7 +82,8 @@ public class GameManager : MonoBehaviour
     {
         this.score = score;
     }
-    private void SetLives(int lives){
+    private void SetLives(int lives)
+    {
         this.lives = lives;
     }
     public void GhostEaten(Ghost ghost)
@@ -87,9 +95,12 @@ public class GameManager : MonoBehaviour
     {
         this.pacman.gameObject.SetActive(false);
         SetLives(this.lives - 1);
-        if(this.lives>0){
+        if (this.lives > 0)
+        {
             Invoke(nameof(ResetState), 3.0f);
-        } else {
+        }
+        else
+        {
             GameOver();
         }
     }
@@ -99,10 +110,10 @@ public class GameManager : MonoBehaviour
         pellet.gameObject.SetActive(false);
         SetScore(this.score + pellet.points);
         lightCircle.Grow();
-        if(!HasRemainingPellets())
+        if (!HasRemainingPellets())
         {
             this.pacman.gameObject.SetActive(false);
-            Invoke(nameof(NewRound), 3.0f);;
+            Invoke(nameof(NewRound), 3.0f); ;
         }
     }
 
@@ -115,8 +126,9 @@ public class GameManager : MonoBehaviour
 
     private bool HasRemainingPellets()
     {
-        foreach (Transform pellet in this.pellets){
-            if(gameObject.activeSelf)
+        foreach (Transform pellet in this.pellets)
+        {
+            if (gameObject.activeSelf)
             {
                 return true;
             }
@@ -124,7 +136,8 @@ public class GameManager : MonoBehaviour
         return false;
     }
 
-    private void ResetGhostMultiplier(){
+    private void ResetGhostMultiplier()
+    {
         ghostMultiplier = 1;
     }
 }
