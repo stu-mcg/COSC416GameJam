@@ -21,7 +21,6 @@ public abstract class GhostBehavior : MonoBehaviour
 
         foreach (Vector2 availableDirection in node.availableDirections)
         {
-            // Prevent immediate 180-degree turns
             if (availableDirection == -ghost.movement.direction && node.availableDirections.Count > 1)
                 continue;
 
