@@ -6624,6 +6624,7 @@ MonoBehaviour:
   pellets: {fileID: 1092964487}
   lightCircle: {fileID: 484352640}
   startupSoundClip: {fileID: 8300000, guid: ca5e49eb390744642aeb6e2bee6ea022, type: 3}
+  eat_sound: {fileID: 8300000, guid: 926066f4e06654cce8d655c1b8e307b4, type: 3}
 --- !u!4 &1690684490
 Transform:
   m_ObjectHideFlags: 0

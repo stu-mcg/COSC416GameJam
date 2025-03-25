@@ -14,6 +14,10 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private AudioClip startupSoundClip;
 
+    [SerializeField] private AudioClip eat_sound;
+
+    private int pelletEatreset = 0;
+
     public int ghostMultiplier { get; private set; } = 1;
 
     public int score { get; private set; }
@@ -110,6 +114,15 @@ public class GameManager : MonoBehaviour
         pellet.gameObject.SetActive(false);
         SetScore(this.score + pellet.points);
         lightCircle.Grow();
+
+        pelletEatreset++;
+
+        if (pelletEatreset == 2)
+        {
+            SoundFXManager.instance.PlaySoundFXClip(eat_sound, transform, 1f);
+            pelletEatreset = 0;
+        }
+
         if (!HasRemainingPellets())
         {
             this.pacman.gameObject.SetActive(false);
