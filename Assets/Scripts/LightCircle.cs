@@ -27,4 +27,10 @@ public class LightCircle : MonoBehaviour
     {
         shrinkVelocity = -onEatGrowVelocity;
     }
+
+    public void ResetState()
+    {
+        radius = startRadius;
+        shrinkVelocity = 0;
+    }
 }

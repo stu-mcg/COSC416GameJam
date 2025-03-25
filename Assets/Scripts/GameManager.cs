@@ -59,6 +59,7 @@ public class GameManager : MonoBehaviour
         }
     private void ResetState()
     {
+        lightCircle.ResetState();
         ResetGhostMultiplier();
         for (int i = 0; i<this.ghosts.Length; i++) {
             this.ghosts[i].ResetState();
