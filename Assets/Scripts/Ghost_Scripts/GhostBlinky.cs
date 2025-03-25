@@ -17,6 +17,7 @@ public class GhostBlinky : GhostBehavior
         }
     }
 
+    // find the shortest path to target position and chases it
     protected void ChaseTarget(Vector3 targetPos, Node node)
     {
         Vector2 direction = Vector2.zero;

@@ -11,6 +11,7 @@ public class GhostPinky : GhostBlinky
 
         if (node != null && enabled && !ghost.frightened.enabled)
         {
+            // finds the targets position and 4 tiles ahead of it in the direction the target is facing
             Vector3 targetPos = ghost.target.position + new Vector3(ghost.target.GetComponent<Movement>().direction.x, ghost.target.GetComponent<Movement>().direction.y, 0) * tilesAhead;
             ChaseTarget(targetPos, node);
         }
