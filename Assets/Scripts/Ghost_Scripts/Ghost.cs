@@ -5,7 +5,10 @@ public class Ghost : MonoBehaviour
     public Movement movement { get; private set; }
     public GhostHome home { get; private set; }
     public GhostScatter scatter { get; private set; }
-    public GhostChase chase { get; private set; }
+    public GhostBlinky blinky { get; private set; }
+    public GhostPinky pinky { get; private set; }
+    public GhostInky inky { get; private set; }
+    public GhostClyde clyde { get; private set; }
     public GhostFrightened frightened { get; private set; }
     public GhostBehavior initialBehavior;
     public Transform target;
@@ -16,8 +19,11 @@ public class Ghost : MonoBehaviour
         movement = GetComponent<Movement>();
         home = GetComponent<GhostHome>();
         scatter = GetComponent<GhostScatter>();
-        chase = GetComponent<GhostChase>();
         frightened = GetComponent<GhostFrightened>();
+        blinky = GetComponent<GhostBlinky>();
+        pinky = GetComponent<GhostPinky>();
+        inky = GetComponent<GhostInky>();
+        clyde = GetComponent<GhostClyde>();
     }
 
     private void Start()
@@ -31,7 +37,12 @@ public class Ghost : MonoBehaviour
         movement.ResetState();
 
         frightened.Disable();
-        chase.Disable();
+
+        if (blinky != null) blinky.Disable();
+        if (pinky != null) pinky.Disable();
+        if (inky != null) inky.Disable();
+        if (clyde != null) clyde.Disable();
+
         scatter.Enable();
 
         if (home != initialBehavior)
