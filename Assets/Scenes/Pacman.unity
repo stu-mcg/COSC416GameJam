@@ -416,6 +416,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 930656303599443208, guid: ac1a0d756358e0a45bfa5c1d2ba57899, type: 3}
+      propertyPath: duration
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 967650000663239725, guid: ac1a0d756358e0a45bfa5c1d2ba57899, type: 3}
       propertyPath: m_Name
       value: Ghost_Inky
@@ -505,7 +509,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &537543800
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -718,6 +722,10 @@ PrefabInstance:
     - target: {fileID: 5307812270739331565, guid: fc5eba800aa48204ca000a59d24e6e79, type: 3}
       propertyPath: duration
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6700631584055185105, guid: fc5eba800aa48204ca000a59d24e6e79, type: 3}
+      propertyPath: duration
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7347393550002695183, guid: fc5eba800aa48204ca000a59d24e6e79, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6276,6 +6284,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3981593138523830748, guid: 2feccfc6ac5f22c4185750d974e1e743, type: 3}
+      propertyPath: duration
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 2073847478944304285, guid: 2feccfc6ac5f22c4185750d974e1e743, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -6353,6 +6365,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4064173923874620577, guid: ab3f26c2f9ea58248bfc58d7e4d895e8, type: 3}
+      propertyPath: duration
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 1090583602145862668, guid: ab3f26c2f9ea58248bfc58d7e4d895e8, type: 3}
       propertyPath: m_Name
       value: Ghost_Clyde
