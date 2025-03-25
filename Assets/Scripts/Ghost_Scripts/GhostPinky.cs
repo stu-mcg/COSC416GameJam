@@ -17,7 +17,6 @@ public class GhostPinky : GhostBehavior
             Vector2 direction = Vector2.zero;
             float minDistance = float.MaxValue;
 
-            // Pinky targets 4 tiles ahead of Pac-Man's current direction
             Vector3 targetPosition = ghost.target.position +
                 new Vector3(ghost.target.GetComponent<Movement>().direction.x,
                             ghost.target.GetComponent<Movement>().direction.y, 0) * 4;
