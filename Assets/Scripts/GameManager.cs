@@ -12,8 +12,6 @@ public class GameManager : MonoBehaviour
 
     public LightCircle lightCircle;
 
-    [SerializeField] private AudioClip startupSoundClip;
-
     [SerializeField] private AudioClip eat_sound;
 
     private int pelletEatreset = 0;
@@ -34,12 +32,14 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
         }
+
     }
 
     private void Start()
     {
         NewGame();
-        SoundFXManager.instance.PlaySoundFXClip(startupSoundClip, transform, 1f);
+
+        Object.FindFirstObjectByType<AudioManager>().Play("start_game_sound");
     }
 
     private void Update()
@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour
         {
             NewGame();
         }
+
     }
     private void NewGame()
     {
@@ -119,7 +120,8 @@ public class GameManager : MonoBehaviour
 
         if (pelletEatreset == 2)
         {
-            SoundFXManager.instance.PlaySoundFXClip(eat_sound, transform, 1f);
+            //Object.FindFirstObjectByType<AudioManager>().Play("waka_waka");
+            AudioManager.instance.PlaySoundFXClip(eat_sound, transform, 0.5f);
             pelletEatreset = 0;
         }
 

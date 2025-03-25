@@ -152,7 +152,7 @@ GameObject:
   - component: {fileID: 284479069}
   - component: {fileID: 284479068}
   m_Layer: 0
-  m_Name: SoundFXManager
+  m_Name: AudioManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -170,7 +170,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf8e6324904cf8043bdf7def6ed75132, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundFXObject: {fileID: 4517071923411790426, guid: 388fcc303e30d415fa223bfbe1fa199f, type: 3}
+  sounds:
+  - name: start_game_sound
+    clip: {fileID: 8300000, guid: ca5e49eb390744642aeb6e2bee6ea022, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ghost_theme_1
+    clip: {fileID: 8300000, guid: 4f4ad28121292c0bdafc2018191ad18d, type: 3}
+    volume: 0.576
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  soundFXObject: {fileID: 1523032802112947254, guid: 388fcc303e30d415fa223bfbe1fa199f, type: 3}
 --- !u!4 &284479069
 Transform:
   m_ObjectHideFlags: 0
@@ -470,6 +483,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1917180420}
     - target: {fileID: 1386999074764906464, guid: ac1a0d756358e0a45bfa5c1d2ba57899, type: 3}
+      propertyPath: ghostMovement
+      value: 
+      objectReference: {fileID: 8300000, guid: 4f4ad28121292c0bdafc2018191ad18d, type: 3}
+    - target: {fileID: 1386999074764906464, guid: ac1a0d756358e0a45bfa5c1d2ba57899, type: 3}
       propertyPath: initialBehavior
       value: 
       objectReference: {fileID: 173140045}
@@ -699,6 +716,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1917180420}
+    - target: {fileID: 3658757340255280924, guid: fc5eba800aa48204ca000a59d24e6e79, type: 3}
+      propertyPath: ghostMovement
+      value: 
+      objectReference: {fileID: 8300000, guid: 4f4ad28121292c0bdafc2018191ad18d, type: 3}
     - target: {fileID: 3658757340255280924, guid: fc5eba800aa48204ca000a59d24e6e79, type: 3}
       propertyPath: initialBehavior
       value: 
@@ -6325,6 +6346,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1917180420}
     - target: {fileID: 5473670839427432334, guid: 2feccfc6ac5f22c4185750d974e1e743, type: 3}
+      propertyPath: ghostMovement
+      value: 
+      objectReference: {fileID: 8300000, guid: 4f4ad28121292c0bdafc2018191ad18d, type: 3}
+    - target: {fileID: 5473670839427432334, guid: 2feccfc6ac5f22c4185750d974e1e743, type: 3}
       propertyPath: initialBehavior
       value: 
       objectReference: {fileID: 1955930780}
@@ -6357,6 +6382,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1917180420}
+    - target: {fileID: 1256747018137446337, guid: ab3f26c2f9ea58248bfc58d7e4d895e8, type: 3}
+      propertyPath: ghostMovement
+      value: 
+      objectReference: {fileID: 8300000, guid: 4f4ad28121292c0bdafc2018191ad18d, type: 3}
     - target: {fileID: 1256747018137446337, guid: ab3f26c2f9ea58248bfc58d7e4d895e8, type: 3}
       propertyPath: initialBehavior
       value: 
@@ -6623,7 +6652,6 @@ MonoBehaviour:
   pacman: {fileID: 1917180416}
   pellets: {fileID: 1092964487}
   lightCircle: {fileID: 484352640}
-  startupSoundClip: {fileID: 8300000, guid: ca5e49eb390744642aeb6e2bee6ea022, type: 3}
   eat_sound: {fileID: 8300000, guid: 926066f4e06654cce8d655c1b8e307b4, type: 3}
 --- !u!4 &1690684490
 Transform:

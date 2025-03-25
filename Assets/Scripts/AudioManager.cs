@@ -1,8 +1,12 @@
+using UnityEngine.Audio;
+using System;
 using UnityEngine;
 
-public class SoundFXManager : MonoBehaviour
+public class AudioManager : MonoBehaviour
 {
-    public static SoundFXManager instance;
+    public static AudioManager instance;
+
+    public Sound[] sounds;
 
     [SerializeField] private AudioSource soundFXObject;
 
@@ -12,6 +16,32 @@ public class SoundFXManager : MonoBehaviour
         {
             instance = this;
         }
+
+        foreach (Sound s in sounds)
+        {
+            s.source = gameObject.AddComponent<AudioSource>();
+            s.source.clip = s.clip;
+
+            s.source.volume = s.volume;
+            s.source.pitch = s.pitch;
+            s.source.loop = s.loop;
+        }
+    }
+
+    void Start()
+    {
+        // Play("ghost_theme_1");
+    }
+
+    public void Play(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s == null)
+        {
+            Debug.LogError($"Sound '{name}' not found in SoundFXManager!");
+            return;
+        }
+        s.source.Play();
     }
 
     public void PlaySoundFXClip(AudioClip audioClip, Transform spawnTransform, float volume)
