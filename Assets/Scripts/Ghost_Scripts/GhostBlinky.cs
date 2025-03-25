@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class GhostChase : GhostBehavior
+public class GhostBlinky : GhostBehavior
 {
     // Blinky behavior
     private void OnDisable()
