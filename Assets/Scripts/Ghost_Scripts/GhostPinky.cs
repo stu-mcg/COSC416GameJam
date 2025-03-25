@@ -1,12 +1,9 @@
 using UnityEngine;
 
-public class GhostPinky : GhostBehavior
+public class GhostPinky : GhostBlinky
 {
     // Pinky behavior
-    private void OnDisable()
-    {
-        ghost.scatter.Enable();
-    }
+    [SerializeField] private int tilesAhead = 4;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -14,26 +11,8 @@ public class GhostPinky : GhostBehavior
 
         if (node != null && enabled && !ghost.frightened.enabled)
         {
-            Vector2 direction = Vector2.zero;
-            float minDistance = float.MaxValue;
-
-            Vector3 targetPosition = ghost.target.position +
-                new Vector3(ghost.target.GetComponent<Movement>().direction.x,
-                            ghost.target.GetComponent<Movement>().direction.y, 0) * 4;
-
-            foreach (Vector2 availableDirection in node.availableDirections)
-            {
-                Vector3 newPosition = transform.position + new Vector3(availableDirection.x, availableDirection.y, 0.0f);
-                float distance = (targetPosition - newPosition).sqrMagnitude;
-
-                if (distance < minDistance)
-                {
-                    direction = availableDirection;
-                    minDistance = distance;
-                }
-            }
-
-            ghost.movement.SetDirection(direction);
+            Vector3 targetPos = ghost.target.position + new Vector3(ghost.target.GetComponent<Movement>().direction.x, ghost.target.GetComponent<Movement>().direction.y, 0) * tilesAhead;
+            ChaseTarget(targetPos, node);
         }
     }
 }
