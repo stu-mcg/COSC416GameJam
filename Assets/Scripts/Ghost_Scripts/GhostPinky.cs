@@ -3,7 +3,7 @@ using UnityEngine;
 public class GhostPinky : GhostBlinky
 {
     // Pinky behavior
-    [SerializeField] private int tilesAhead = 4;
+    [SerializeField] private int tilesAhead = 5;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
