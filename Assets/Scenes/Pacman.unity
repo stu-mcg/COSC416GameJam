@@ -141,6 +141,64 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6809eac28fba66842898bc307ee2d95c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &284479067
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 284479069}
+  - component: {fileID: 284479068}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &284479068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 284479067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf8e6324904cf8043bdf7def6ed75132, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: start_game_sound
+    clip: {fileID: 8300000, guid: ca5e49eb390744642aeb6e2bee6ea022, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ghost_theme_1
+    clip: {fileID: 8300000, guid: 4f4ad28121292c0bdafc2018191ad18d, type: 3}
+    volume: 0.576
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  soundFXObject: {fileID: 1523032802112947254, guid: 388fcc303e30d415fa223bfbe1fa199f, type: 3}
+--- !u!4 &284479069
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 284479067}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &426636332 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1256747018137446337, guid: ab3f26c2f9ea58248bfc58d7e4d895e8, type: 3}
@@ -425,6 +483,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1917180420}
     - target: {fileID: 1386999074764906464, guid: ac1a0d756358e0a45bfa5c1d2ba57899, type: 3}
+      propertyPath: ghostMovement
+      value: 
+      objectReference: {fileID: 8300000, guid: 4f4ad28121292c0bdafc2018191ad18d, type: 3}
+    - target: {fileID: 1386999074764906464, guid: ac1a0d756358e0a45bfa5c1d2ba57899, type: 3}
       propertyPath: initialBehavior
       value: 
       objectReference: {fileID: 173140045}
@@ -703,6 +765,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1917180420}
+    - target: {fileID: 3658757340255280924, guid: fc5eba800aa48204ca000a59d24e6e79, type: 3}
+      propertyPath: ghostMovement
+      value: 
+      objectReference: {fileID: 8300000, guid: 4f4ad28121292c0bdafc2018191ad18d, type: 3}
     - target: {fileID: 3658757340255280924, guid: fc5eba800aa48204ca000a59d24e6e79, type: 3}
       propertyPath: initialBehavior
       value: 
@@ -6329,6 +6395,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1917180420}
     - target: {fileID: 5473670839427432334, guid: 2feccfc6ac5f22c4185750d974e1e743, type: 3}
+      propertyPath: ghostMovement
+      value: 
+      objectReference: {fileID: 8300000, guid: 4f4ad28121292c0bdafc2018191ad18d, type: 3}
+    - target: {fileID: 5473670839427432334, guid: 2feccfc6ac5f22c4185750d974e1e743, type: 3}
       propertyPath: initialBehavior
       value: 
       objectReference: {fileID: 1955930780}
@@ -6361,6 +6431,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1917180420}
+    - target: {fileID: 1256747018137446337, guid: ab3f26c2f9ea58248bfc58d7e4d895e8, type: 3}
+      propertyPath: ghostMovement
+      value: 
+      objectReference: {fileID: 8300000, guid: 4f4ad28121292c0bdafc2018191ad18d, type: 3}
     - target: {fileID: 1256747018137446337, guid: ab3f26c2f9ea58248bfc58d7e4d895e8, type: 3}
       propertyPath: initialBehavior
       value: 
@@ -6627,6 +6701,7 @@ MonoBehaviour:
   pacman: {fileID: 1917180416}
   pellets: {fileID: 1092964487}
   lightCircle: {fileID: 484352640}
+  eat_sound: {fileID: 8300000, guid: 926066f4e06654cce8d655c1b8e307b4, type: 3}
 --- !u!4 &1690684490
 Transform:
   m_ObjectHideFlags: 0
@@ -18764,6 +18839,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1690684490}
+  - {fileID: 284479069}
   - {fileID: 1583898588}
   - {fileID: 476147812}
   - {fileID: 1917180420}
