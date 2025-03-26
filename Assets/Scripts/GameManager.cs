@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
     {
         NewGame();
 
-        Object.FindFirstObjectByType<AudioManager>().Play("start_game_sound");
+     //   Object.FindFirstObjectByType<AudioManager>().Play("start_game_sound");
     }
 
     private void Update()
