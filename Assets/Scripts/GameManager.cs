@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class GameManager : MonoBehaviour
     public Transform pellets;
 
     public LightCircle lightCircle;
+    public HUD hud;
 
     [SerializeField] private AudioClip eat_sound;
 
@@ -88,14 +90,16 @@ public class GameManager : MonoBehaviour
     private void SetScore(int score)
     {
         this.score = score;
+        hud.UpdateScore(score);
     }
     private void SetLives(int lives)
     {
         this.lives = lives;
+        hud.UpdateLives(lives);
     }
     public void GhostEaten(Ghost ghost)
     {
-        // SetScore(this.score + ghost.points * ghostMultiplier);
+        SetScore(this.score + ghost.points * ghostMultiplier);
         this.ghostMultiplier++;
     }
     public void PacmanEaten()
