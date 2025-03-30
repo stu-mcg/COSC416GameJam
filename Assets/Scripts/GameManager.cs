@@ -1,23 +1,29 @@
 using System;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
     public Ghost[] ghosts;
-    
+
     public Pacman pacman;
 
     public Transform pellets;
 
     public LightCircle lightCircle;
+    public HUD hud;
 
-    public int ghostMultiplier {get; private set;} = 1;
+    [SerializeField] private AudioClip eat_sound;
 
-    public int score {get; private set;}
+    private int pelletEatreset = 0;
 
-    public int lives {get; private set;}
+    public int ghostMultiplier { get; private set; } = 1;
+
+    public int score { get; private set; }
+
+    public int lives { get; private set; }
 
     public void Awake()
     {
@@ -29,18 +35,23 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
         }
+
     }
 
     private void Start()
     {
         NewGame();
+
+     //   Object.FindFirstObjectByType<AudioManager>().Play("start_game_sound");
     }
 
     private void Update()
     {
-        if (this.lives <= 0 && Input.anyKeyDown){
+        if (this.lives <= 0 && Input.anyKeyDown)
+        {
             NewGame();
         }
+
     }
     private void NewGame()
     {
@@ -51,23 +62,27 @@ public class GameManager : MonoBehaviour
     }
 
     private void NewRound()
+    {
+        foreach (Transform pellet in this.pellets)
         {
-            foreach(Transform pellet in this.pellets){
-                pellet.gameObject.SetActive(true);
-            }
-            ResetState();
+            pellet.gameObject.SetActive(true);
         }
+        ResetState();
+    }
     private void ResetState()
     {
+        lightCircle.ResetState();
         ResetGhostMultiplier();
-        for (int i = 0; i<this.ghosts.Length; i++) {
+        for (int i = 0; i < this.ghosts.Length; i++)
+        {
             this.ghosts[i].ResetState();
         }
         this.pacman.ResetState();
     }
     private void GameOver()
     {
-        for (int i=0; i < this.ghosts.Length; i++){
+        for (int i = 0; i < this.ghosts.Length; i++)
+        {
             this.ghosts[i].gameObject.SetActive(false);
         }
         this.pacman.gameObject.SetActive(false);
@@ -75,22 +90,28 @@ public class GameManager : MonoBehaviour
     private void SetScore(int score)
     {
         this.score = score;
+        hud.UpdateScore(score);
     }
-    private void SetLives(int lives){
+    private void SetLives(int lives)
+    {
         this.lives = lives;
+        hud.UpdateLives(lives);
     }
     public void GhostEaten(Ghost ghost)
     {
-        // SetScore(this.score + ghost.points * ghostMultiplier);
+        SetScore(this.score + ghost.points * ghostMultiplier);
         this.ghostMultiplier++;
     }
     public void PacmanEaten()
     {
         this.pacman.gameObject.SetActive(false);
         SetLives(this.lives - 1);
-        if(this.lives>0){
+        if (this.lives > 0)
+        {
             Invoke(nameof(ResetState), 3.0f);
-        } else {
+        }
+        else
+        {
             GameOver();
         }
     }
@@ -100,10 +121,20 @@ public class GameManager : MonoBehaviour
         pellet.StartRegenerateTimeout();
         SetScore(this.score + pellet.points);
         lightCircle.Grow();
-        if(!HasRemainingPellets())
+
+        pelletEatreset++;
+
+        if (pelletEatreset == 2)
+        {
+            //Object.FindFirstObjectByType<AudioManager>().Play("waka_waka");
+            AudioManager.instance.PlaySoundFXClip(eat_sound, transform, 0.5f);
+            pelletEatreset = 0;
+        }
+
+        if (!HasRemainingPellets())
         {
             this.pacman.gameObject.SetActive(false);
-            Invoke(nameof(NewRound), 3.0f);;
+            Invoke(nameof(NewRound), 3.0f); ;
         }
     }
 
@@ -121,8 +152,9 @@ public class GameManager : MonoBehaviour
 
     private bool HasRemainingPellets()
     {
-        foreach (Transform pellet in this.pellets){
-            if(gameObject.activeSelf)
+        foreach (Transform pellet in this.pellets)
+        {
+            if (gameObject.activeSelf)
             {
                 return true;
             }
@@ -130,7 +162,8 @@ public class GameManager : MonoBehaviour
         return false;
     }
 
-    private void ResetGhostMultiplier(){
+    private void ResetGhostMultiplier()
+    {
         ghostMultiplier = 1;
     }
 }

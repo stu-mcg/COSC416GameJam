@@ -56,7 +56,7 @@ public class Ghost : MonoBehaviour
         }
     }
 
-    public void SetPosition (Vector3 position)
+    public void SetPosition(Vector3 position)
     {
         position.z = transform.position.z;
         transform.position = position;
