@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using System.Collections;
 using Object = UnityEngine.Object;
 
 public class GameManager : MonoBehaviour
@@ -99,10 +100,27 @@ public class GameManager : MonoBehaviour
     }
     public void GhostEaten(Ghost ghost)
     {
+
+        StartCoroutine(GhostEatenDelay(ghost));
+        // SetScore(this.score + ghost.points * ghostMultiplier);
+        // this.ghostMultiplier++;
+        // Object.FindFirstObjectByType<AudioManager>().Play("ghost_eaten");
+    }
+
+    private IEnumerator GhostEatenDelay(Ghost ghost)
+    {
+        Time.timeScale = 0;
+        Object.FindFirstObjectByType<AudioManager>().Play("ghost_eaten");
+
+        yield return new WaitForSecondsRealtime(0.5f);
+
+        Time.timeScale = 1;
+
         SetScore(this.score + ghost.points * ghostMultiplier);
         this.ghostMultiplier++;
-        Object.FindFirstObjectByType<AudioManager>().Play("ghost_eaten");
+
     }
+
     public void PacmanEaten()
     {
         this.pacman.gameObject.SetActive(false);
