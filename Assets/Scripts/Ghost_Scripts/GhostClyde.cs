@@ -14,32 +14,24 @@ public class GhostClyde : GhostBehavior
 
     private void OnDisable()
     {
-        if (ghost != null && ghost.scatter != null)
-        {
-            ghost.scatter.Enable();
-        }
+        ghost.scatter.Enable();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         Node node = other.GetComponent<Node>();
-        if (node == null || !enabled || ghost.frightened.enabled) return;
-
-        float distanceToPacman = Vector2.Distance(transform.position, ghost.target.position);
-
-        if (distanceToPacman < retreatDistance)
+        if (node != null && enabled && !ghost.frightened.enabled)
         {
-            if (!isRetreating)
+            float distanceToPacman = Vector2.Distance(transform.position, ghost.target.position);
+
+            if (distanceToPacman < retreatDistance * retreatDistance)
             {
-                isRetreating = true;
-                ghost.scatter.Enable(duration); // Use current behavior's duration
-                return;
+                ghost.scatter.Enable(); // Use current behavior's duration
             }
-        }
-        else
-        {
-            isRetreating = false;
-            ChaseTarget(ghost.target.position, node);
+            else
+            {
+                ChaseTarget(ghost.target.position, node);
+            }
         }
     }
 }
