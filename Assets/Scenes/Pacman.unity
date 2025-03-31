@@ -715,7 +715,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 537543799}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -7338,6 +7338,10 @@ PrefabInstance:
     - target: {fileID: 5062458481788966098, guid: ab3f26c2f9ea58248bfc58d7e4d895e8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6329110646552204900, guid: ab3f26c2f9ea58248bfc58d7e4d895e8, type: 3}
+      propertyPath: duration
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7646966519669809456, guid: ab3f26c2f9ea58248bfc58d7e4d895e8, type: 3}
       propertyPath: inside
