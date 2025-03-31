@@ -56,5 +56,8 @@ public abstract class GhostBehavior : MonoBehaviour
 
         CancelInvoke();
     }
-
+    protected virtual void OnEnable()
+    {
+        if (ghost == null) ghost = GetComponent<Ghost>();
+    }
 }

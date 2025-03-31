@@ -16,6 +16,4 @@ public class GhostBlinky : GhostBehavior
             ChaseTarget(ghost.target.position, node);
         }
     }
-
-    
 }
