@@ -30,7 +30,7 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
-         Play("ghost_theme_1");
+        // theme song goes here Play("ghost_theme_1");
     }
 
     public void Play(string name)

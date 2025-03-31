@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
     {
         NewGame();
 
-     //   Object.FindFirstObjectByType<AudioManager>().Play("start_game_sound");
+        //   Object.FindFirstObjectByType<AudioManager>().Play("start_game_sound");
     }
 
     private void Update()
@@ -101,6 +101,7 @@ public class GameManager : MonoBehaviour
     {
         SetScore(this.score + ghost.points * ghostMultiplier);
         this.ghostMultiplier++;
+        Object.FindFirstObjectByType<AudioManager>().Play("ghost_eaten");
     }
     public void PacmanEaten()
     {
@@ -143,6 +144,7 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < ghosts.Length; i++)
         {
             ghosts[i].frightened.Enable(pellet.duration);
+            Object.FindFirstObjectByType<AudioManager>().Play("power_pellet_eaten");
         }
 
         PelletEaten(pellet);

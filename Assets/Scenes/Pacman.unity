@@ -177,11 +177,17 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: ghost_theme_1
-    clip: {fileID: 8300000, guid: 4f4ad28121292c0bdafc2018191ad18d, type: 3}
+  - name: power_pellet_eaten
+    clip: {fileID: 8300000, guid: 9a1e27772465abcd39780cba74977528, type: 3}
     volume: 0.576
     pitch: 1
-    loop: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ghost_eaten
+    clip: {fileID: 8300000, guid: 7b9d40dc4ed35020fa8740119cc29efa, type: 3}
+    volume: 0.576
+    pitch: 1
+    loop: 0
     source: {fileID: 0}
   soundFXObject: {fileID: 1523032802112947254, guid: 388fcc303e30d415fa223bfbe1fa199f, type: 3}
 --- !u!4 &284479069
