@@ -4,18 +4,8 @@ public class GhostClyde : GhostBehavior
 {
     // Clyde behavior
     [SerializeField] public float retreatDistance = 8f;
-    private bool isRetreating;
 
-    protected override void OnEnable()
-    {
-        base.OnEnable();
-        isRetreating = false;
-    }
-
-    private void OnDisable()
-    {
-        ghost.scatter.Enable();
-    }
+    
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -24,7 +14,7 @@ public class GhostClyde : GhostBehavior
         {
             float distanceToPacman = Vector2.Distance(transform.position, ghost.target.position);
 
-            if (distanceToPacman < retreatDistance * retreatDistance)
+            if (distanceToPacman < retreatDistance)
             {
                 ghost.scatter.Enable(); // Use current behavior's duration
             }

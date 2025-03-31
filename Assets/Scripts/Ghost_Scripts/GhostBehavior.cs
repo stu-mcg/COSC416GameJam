@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class GhostBehavior : MonoBehaviour
 {
     public Ghost ghost {  get; private set; }
-    public float duration;
+    public float duration; // possibly be the bug with duration switches in behavior
 
     private void Awake()
     {
@@ -55,10 +55,6 @@ public abstract class GhostBehavior : MonoBehaviour
         this.enabled = false;
 
         CancelInvoke();
-    }
-    protected virtual void OnEnable()
-    {
-        if (ghost == null) ghost = GetComponent<Ghost>();
     }
 
 }
