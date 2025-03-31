@@ -6,6 +6,7 @@ public class GhostFrightened : GhostBehavior
     public SpriteRenderer eyes;
     public SpriteRenderer blue;
     public SpriteRenderer white;
+    public SpriteRenderer eatenScore;
 
     public bool eaten;
 
@@ -29,6 +30,7 @@ public class GhostFrightened : GhostBehavior
         eyes.enabled = true;
         blue.enabled = false;
         white.enabled = false;
+        eatenScore.enabled = false;
     }
 
     private void Flash()
@@ -45,14 +47,37 @@ public class GhostFrightened : GhostBehavior
     {
         eaten = true;
 
+        body.enabled = false;
+        eyes.enabled = false;
+
+        Invoke(nameof(ReShowEyes), 0.2f);
+
+        blue.enabled = false;
+        white.enabled = false;
+        eatenScore.enabled = true;
+
+        // Delay teleporting the ghost home
+        Invoke(nameof(TeleportHome), 0.2f);
+
+        Invoke(nameof(HideEatenScore), 0.2f);
+
+    }
+
+    private void HideEatenScore()
+    {
+        eatenScore.enabled = false; // Hide score after being displayed
+    }
+
+    private void TeleportHome()
+    {
         ghost.SetPosition(ghost.home.inside.position); // instantly teleports home
 
         ghost.home.Enable(duration);
+    }
 
-        body.enabled = false;
+    private void ReShowEyes()
+    {
         eyes.enabled = true;
-        blue.enabled = false;
-        white.enabled = false;
     }
 
     private void OnEnable()

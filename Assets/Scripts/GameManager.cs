@@ -100,11 +100,7 @@ public class GameManager : MonoBehaviour
     }
     public void GhostEaten(Ghost ghost)
     {
-
         StartCoroutine(GhostEatenDelay(ghost));
-        // SetScore(this.score + ghost.points * ghostMultiplier);
-        // this.ghostMultiplier++;
-        // Object.FindFirstObjectByType<AudioManager>().Play("ghost_eaten");
     }
 
     private IEnumerator GhostEatenDelay(Ghost ghost)
@@ -112,9 +108,14 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
         Object.FindFirstObjectByType<AudioManager>().Play("ghost_eaten");
 
+        SpriteRenderer pacmanSprite = pacman.GetComponent<SpriteRenderer>();
+        pacmanSprite.enabled = false;
+
         yield return new WaitForSecondsRealtime(0.5f);
 
         Time.timeScale = 1;
+
+        pacmanSprite.enabled = true;
 
         SetScore(this.score + ghost.points * ghostMultiplier);
         this.ghostMultiplier++;
