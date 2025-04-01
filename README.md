@@ -8,10 +8,10 @@ Welcome to our Game Jam entry — a retro **Pac-Man clone** with a twist of dark
 ---
 
 ## Made By
-- Stuart McGorman
-- Preston Melvin
-- Jordan Truong
-- Chase Winslow
+- Stuart McGorman (Maze, Pellets, HUD)
+- Preston Melvin (Map design, Shaders Arcade Style, Sounds)
+- Jordan Truong (Ghost Chase & Scatter, Ghost animations, Indiviual Ghost Behaviours)
+- Chase Winslow (Pac-man movement and animations, Play button, Game Over Screen)
  
 ---
 
