@@ -44,6 +44,15 @@ public class AudioManager : MonoBehaviour
         s.source.Play();
     }
 
+    public void Stop(string soundName)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == soundName);
+        if (s != null && s.source.isPlaying)
+        {
+            s.source.Stop();
+        }
+    }
+
     public void PlaySoundFXClip(AudioClip audioClip, Transform spawnTransform, float volume)
     {
         // spawn in gameObject

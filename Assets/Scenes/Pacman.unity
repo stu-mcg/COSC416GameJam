@@ -189,6 +189,18 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: pac_death
+    clip: {fileID: 8300000, guid: 0e7fcbe70a6b4a52fb91d4699f67659d, type: 3}
+    volume: 0.565
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: game_over_screen
+    clip: {fileID: 8300000, guid: 26d43125f4c3bc994990d5da1cb088a4, type: 3}
+    volume: 0.565
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
   soundFXObject: {fileID: 1523032802112947254, guid: 388fcc303e30d415fa223bfbe1fa199f, type: 3}
 --- !u!4 &284479069
 Transform:
@@ -768,7 +780,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -7340,8 +7352,6 @@ PrefabInstance:
     - target: {fileID: 5062458481788966098, guid: ab3f26c2f9ea58248bfc58d7e4d895e8, type: 3}
       propertyPath: m_LocalScale.y
       value: 1
-      propertyPath: eaten
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5062458481788966098, guid: ab3f26c2f9ea58248bfc58d7e4d895e8, type: 3}
       propertyPath: m_LocalPosition.x

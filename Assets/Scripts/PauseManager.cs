@@ -34,5 +34,6 @@ public class PauseManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(5.0f);
 
         Time.timeScale = 1f;
+
     }
 }
