@@ -4,20 +4,12 @@ using UnityEngine;
 
 public abstract class GhostBehavior : MonoBehaviour
 {
-    protected Ghost _ghost;
-    public Ghost ghost
-    {
-        get
-        {
-            if (_ghost == null) _ghost = GetComponent<Ghost>();
-            return _ghost;
-        }
-    }
+    public Ghost ghost;
     public float duration;
 
     private void Awake()
     {
-        this._ghost = GetComponent<Ghost>();
+        this.ghost = GetComponent<Ghost>();
         this.enabled = false;
     }
 

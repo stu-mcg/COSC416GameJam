@@ -83,14 +83,14 @@ public class GhostFrightened : GhostBehavior
         eyes.enabled = true;
     }
 
-    private void OnEnable()
+    protected override void OnEnable()
     {
         blue.GetComponent<AnimatedSprite>().Restart();
         ghost.movement.speedMultiplier = 0.5f;
         eaten = false;
     }
 
-    private void OnDisable()
+    protected override void OnDisable()
     {
         ghost.movement.speedMultiplier = 1.0f;
         eaten = false;
