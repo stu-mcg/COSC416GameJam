@@ -73,8 +73,8 @@ In this version of Pac-Man:
 ---
 
 ## 🧑‍💻 Credits
-Sprites and Sound/Music from Zigurous under free use content https://github.com/zigurous
-Made with 💛 by the COSC416 Game Jam Team  
+- Sprites and Sound/Music from Zigurous under free use content https://github.com/zigurous
+### Made with 💛 by the COSC416 Game Jam Team  
 - Gameplay & Mechanics: Darkness mechanic, pellet regen, ghost AI  
 - Design & Art: Retro look, UI, and level layout
 - Programming: Unity C# (Scripts: `Darkness.cs`, `Pellet.cs`, `GameManager.cs`, etc.)
