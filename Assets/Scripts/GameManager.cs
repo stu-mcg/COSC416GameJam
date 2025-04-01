@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         
         SetScore(0);
-        SetLives(1);
+        SetLives(3);
         NewRound();
     }
 
