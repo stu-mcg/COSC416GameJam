@@ -43,9 +43,17 @@ public class GameManager : MonoBehaviour
     {
         if (lives <= 0 && Input.anyKeyDown)
         {
+            // Stop the "game_over_screen" audio if it's playing
+            AudioManager audioManager = Object.FindFirstObjectByType<AudioManager>();
+            if (audioManager != null)
+            {
+                audioManager.Stop("game_over_screen");
+            }
+
             NewGame();
         }
     }
+
 
     private void NewGame()
     {
@@ -99,6 +107,8 @@ public class GameManager : MonoBehaviour
             gameOverText.gameObject.SetActive(true);
         }
 
+        Object.FindFirstObjectByType<AudioManager>().Play("game_over_screen");
+
         // Pause the game.
         Time.timeScale = 0f;
     }
@@ -147,6 +157,14 @@ public class GameManager : MonoBehaviour
     {
         // Start Pacman's death animation coroutine.
         StartCoroutine(pacman.DeathAnimation());
+
+        AudioManager audioManager = Object.FindFirstObjectByType<AudioManager>();
+        if (audioManager != null)
+        {
+            audioManager.Stop("power_pellet_eaten");
+        }
+
+        Object.FindFirstObjectByType<AudioManager>().Play("pac_death");
 
         SetLives(this.lives - 1);
 
