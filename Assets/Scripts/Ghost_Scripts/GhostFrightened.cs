@@ -12,8 +12,8 @@ public class GhostFrightened : GhostBehavior
 
     public override void Enable(float duration)
     {
-        if (!eaten && !ghost.home.enabled) 
-        { 
+        if (!eaten && !ghost.home.enabled)
+        {
             base.Enable(duration);
 
             body.enabled = false;
@@ -61,9 +61,8 @@ public class GhostFrightened : GhostBehavior
         eatenScore.enabled = true;
 
         // Delay teleporting the ghost home
-        Invoke(nameof(TeleportHome), 0.2f);
-
-        Invoke(nameof(HideEatenScore), 0.2f);
+        Invoke(nameof(TeleportHome), 0.1f);
+        Invoke(nameof(HideEatenScore), 0.1f);
 
     }
 

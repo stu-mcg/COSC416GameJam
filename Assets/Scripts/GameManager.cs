@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using System.Collections;
 using Object = UnityEngine.Object;
-using UnityEngine.UI;  
+using UnityEngine.UI;
 using TMPro;
 
 public class GameManager : MonoBehaviour
@@ -54,10 +54,10 @@ public class GameManager : MonoBehaviour
         {
             gameOverText.gameObject.SetActive(false);
         }
-        
+
         // Resume the game in case it was paused.
         Time.timeScale = 1f;
-        
+
         SetScore(0);
         SetLives(3);
         NewRound();
@@ -91,14 +91,14 @@ public class GameManager : MonoBehaviour
             ghost.gameObject.SetActive(false);
         }
         pacman.gameObject.SetActive(false);
-        
+
         // Display Game Over UI text with the final score.
         if (gameOverText != null)
         {
             gameOverText.text = "GAME OVER\nScore: " + score + "\nPress Any Key to Restart";
             gameOverText.gameObject.SetActive(true);
         }
-        
+
         // Pause the game.
         Time.timeScale = 0f;
     }
@@ -147,9 +147,9 @@ public class GameManager : MonoBehaviour
     {
         // Start Pacman's death animation coroutine.
         StartCoroutine(pacman.DeathAnimation());
-        
+
         SetLives(this.lives - 1);
-        
+
         // Delay until the death animation finishes before resetting or triggering GameOver.
         float delay = pacman.HopDuration + pacman.FallDuration + 0.5f;
         if (this.lives > 0)
@@ -186,10 +186,10 @@ public class GameManager : MonoBehaviour
         foreach (Ghost ghost in ghosts)
         {
 
-            ghosts[i].frightened.Enable(pellet.duration);
+            //ghosts[i].frightened.Enable(pellet.duration);
             Object.FindFirstObjectByType<AudioManager>().Play("power_pellet_eaten");
 
-            //ghost.frightened.Enable(pellet.duration);
+            ghost.frightened.Enable(pellet.duration);
 
         }
         PelletEaten(pellet);
