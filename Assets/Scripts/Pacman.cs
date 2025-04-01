@@ -10,12 +10,11 @@ public class Pacman : MonoBehaviour
     private CircleCollider2D circleCollider;
     private Movement movement;
 
-    [SerializeField] private float deathHopHeight = 2f;  
-    [SerializeField] private float hopDuration = 0.5f;    
-    [SerializeField] private float fallDuration = 2f;    
+    [SerializeField] private float deathHopHeight = 3.0f; 
+    [SerializeField] private float hopDuration = 0.5f;     
+    [SerializeField] private float fallDuration = 2.5f;   
     [SerializeField] private float fallDistance = 20f;     
     
-   
     public float HopDuration { get { return hopDuration; } }
     public float FallDuration { get { return fallDuration; } }
 
@@ -52,11 +51,15 @@ public class Pacman : MonoBehaviour
     public void ResetState()
     {
         movement.ResetState();
+        // Re-enable collisions when resetting Pacman.
+        circleCollider.enabled = true;
         gameObject.SetActive(true);
     }
     
     public IEnumerator DeathAnimation()
     {
+        circleCollider.enabled = false;
+        
         Vector3 startPos = transform.position;
         Vector3 hopTarget = startPos + Vector3.up * deathHopHeight;
         
