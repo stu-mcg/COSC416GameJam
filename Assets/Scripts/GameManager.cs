@@ -170,7 +170,6 @@ public class GameManager : MonoBehaviour
         pelletEatreset++;
         if (pelletEatreset == 2)
         {
-            // Object.FindFirstObjectByType<AudioManager>().Play("waka_waka");
             AudioManager.instance.PlaySoundFXClip(eat_sound, transform, 0.5f);
             pelletEatreset = 0;
         }
