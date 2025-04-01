@@ -13,10 +13,6 @@ public class GhostClyde : GhostBehavior
 
     protected override void OnDisable()
     {
-        // Safe disable with null checks
-        if (!enabled || ghost == null || ghost.scatter == null) return;
-
-        base.OnDisable(); // Important for base class cleanup
         ghost.scatter.Enable();
     }
 
