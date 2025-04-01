@@ -1,4 +1,4 @@
-# 🌑 Pacman - COSC416 Game Jam Project
+# 🌑 Pacman in the Dark? - COSC416 Game Jam Project
 
 Welcome to our Game Jam entry — a retro **Pac-Man clone** with a twist of darkness, tension, and style. Built with **Unity 6** and designed to run directly in your browser via **WebGL**, this version recreates the classic arcade formula with a modern gameplay mechanic.
 
