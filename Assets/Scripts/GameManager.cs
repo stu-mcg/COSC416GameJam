@@ -4,7 +4,6 @@ using Object = UnityEngine.Object;
 using UnityEngine.UI;  
 using TMPro;
 
-
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
@@ -124,15 +123,20 @@ public class GameManager : MonoBehaviour
 
     public void PacmanEaten()
     {
-        pacman.gameObject.SetActive(false);
+        // Start Pacman's death animation coroutine.
+        StartCoroutine(pacman.DeathAnimation());
+        
         SetLives(this.lives - 1);
+        
+        // Delay until the death animation finishes before resetting or triggering GameOver.
+        float delay = pacman.HopDuration + pacman.FallDuration + 0.5f;
         if (this.lives > 0)
         {
-            Invoke(nameof(ResetState), 3.0f);
+            Invoke(nameof(ResetState), delay);
         }
         else
         {
-            GameOver();
+            Invoke(nameof(GameOver), delay);
         }
     }
 

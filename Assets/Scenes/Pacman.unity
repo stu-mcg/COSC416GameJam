@@ -19430,6 +19430,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathSequence: {fileID: 0}
+  deathHopHeight: 2
+  hopDuration: 0.5
+  fallDuration: 0.5
+  fallDistance: 10
 --- !u!58 &1917180417
 CircleCollider2D:
   m_ObjectHideFlags: 0
