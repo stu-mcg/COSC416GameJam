@@ -13,7 +13,9 @@ public class GhostClyde : GhostBehavior
 
     protected override void OnDisable()
     {
-        ghost.scatter.Enable();
+        if(ghost.scatter){
+            ghost.scatter.Enable();
+        }
     }
 
     protected override void OnEnable()

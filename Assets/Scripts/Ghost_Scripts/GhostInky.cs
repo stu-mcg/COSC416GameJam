@@ -7,7 +7,9 @@ public class GhostInky : GhostBehavior
 
     protected override void OnDisable()
     {
-        ghost.scatter.Enable();
+        if(ghost.scatter){
+            ghost.scatter.Enable();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
