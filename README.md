@@ -1,6 +1,6 @@
 # 🌑 Pacman - COSC416 Game Jam Project
 
-Welcome to our Game Jam entry — a retro **Pac-Man clone** with a twist of darkness, tension, and style. Built with **Unity 6** and designed to run directly in your browser via **WebGL**, this version reinvents the classic arcade formula with modern gameplay mechanics.
+Welcome to our Game Jam entry — a retro **Pac-Man clone** with a twist of darkness, tension, and style. Built with **Unity 6** and designed to run directly in your browser via **WebGL**, this version recreates the classic arcade formula with a modern gameplay mechanic.
 
 🎮 **[▶ Play Now on Itch.io](https://chasew.itch.io/pacman-in-unity)**  
 *(Playable instantly — no download needed!)*
