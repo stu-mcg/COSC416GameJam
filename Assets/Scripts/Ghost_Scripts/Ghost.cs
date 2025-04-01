@@ -3,14 +3,14 @@ using UnityEngine;
 public class Ghost : MonoBehaviour
 {
     public Movement movement { get; private set; }
-    public GhostHome home { get; private set; }
-    public GhostScatter scatter { get; private set; }
-    public GhostBlinky blinky { get; private set; }
-    public GhostPinky pinky { get; private set; }
-    public GhostInky inky { get; private set; }
-    public GhostClyde clyde { get; private set; }
-    public GhostFrightened frightened { get; private set; }
-    public GhostBehavior initialBehavior;
+    [SerializeField] public GhostHome home { get; private set; }
+    [SerializeField] public GhostScatter scatter { get; private set; }
+    [SerializeField] public GhostBlinky blinky { get; private set; }
+    [SerializeField] public GhostPinky pinky { get; private set; }
+    [SerializeField] public GhostInky inky { get; private set; }
+    [SerializeField] public GhostClyde clyde { get; private set; }
+    [SerializeField] public GhostFrightened frightened { get; private set; }
+    [SerializeField] public GhostBehavior initialBehavior;
     public Transform target;
     public int points = 200;
 

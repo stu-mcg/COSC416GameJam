@@ -3,7 +3,7 @@ using UnityEngine;
 public class GhostScatter : GhostBehavior
 {
 
-    private void OnDisable()
+    protected override void OnDisable()
     {
         // Enable the appropriate chase behavior based on ghost type
         if (ghost.blinky != null) ghost.blinky.Enable();

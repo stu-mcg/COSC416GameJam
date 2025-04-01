@@ -4,12 +4,20 @@ using UnityEngine;
 
 public abstract class GhostBehavior : MonoBehaviour
 {
-    public Ghost ghost {  get; private set; }
-    public float duration; // possibly be the bug with duration switches in behavior
+    protected Ghost _ghost;
+    public Ghost ghost
+    {
+        get
+        {
+            if (_ghost == null) _ghost = GetComponent<Ghost>();
+            return _ghost;
+        }
+    }
+    public float duration;
 
     private void Awake()
     {
-        this.ghost = GetComponent<Ghost>();
+        this._ghost = GetComponent<Ghost>();
         this.enabled = false;
     }
 
@@ -58,6 +66,9 @@ public abstract class GhostBehavior : MonoBehaviour
     }
     protected virtual void OnEnable()
     {
-        if (ghost == null) ghost = GetComponent<Ghost>();
+
+    }
+    protected virtual void OnDisable()
+    {
     }
 }

@@ -6,12 +6,12 @@ public class GhostHome : GhostBehavior
     public Transform inside;
     public Transform outside;
 
-    private void OnEnable()
+    protected override void OnEnable()
     {
         StopAllCoroutines();
     }
 
-    private void OnDisable()
+    protected override void OnDisable()
     {
         if (gameObject.activeInHierarchy)
         {

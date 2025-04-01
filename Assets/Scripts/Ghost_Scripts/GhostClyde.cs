@@ -11,8 +11,12 @@ public class GhostClyde : GhostBehavior
     private bool isChasing;
     private Vector2 lastDirection;
 
-    private void OnDisable()
+    protected override void OnDisable()
     {
+        // Safe disable with null checks
+        if (!enabled || ghost == null || ghost.scatter == null) return;
+
+        base.OnDisable(); // Important for base class cleanup
         ghost.scatter.Enable();
     }
 
