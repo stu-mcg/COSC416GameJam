@@ -12,14 +12,18 @@ public class GhostFrightened : GhostBehavior
 
     public override void Enable(float duration)
     {
-        base.Enable(duration);
+        if (!eaten && !ghost.home.enabled) 
+        { 
+            base.Enable(duration);
 
-        body.enabled = false;
-        eyes.enabled = false;
-        blue.enabled = true;
-        white.enabled = false;
+            body.enabled = false;
+            eyes.enabled = false;
+            blue.enabled = true;
+            white.enabled = false;
 
-        Invoke(nameof(Flash), duration / 2.0f);
+            Invoke(nameof(Flash), duration / 2.0f);
+        }
+
     }
 
     public override void Disable()
