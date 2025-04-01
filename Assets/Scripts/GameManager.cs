@@ -42,8 +42,6 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         NewGame();
-
-        //   Object.FindFirstObjectByType<AudioManager>().Play("start_game_sound");
     }
 
     private void Update()
@@ -146,7 +144,6 @@ public class GameManager : MonoBehaviour
 
         if (pelletEatreset == 2)
         {
-            //Object.FindFirstObjectByType<AudioManager>().Play("waka_waka");
             AudioManager.instance.PlaySoundFXClip(eat_sound, transform, 0.5f);
             pelletEatreset = 0;
         }

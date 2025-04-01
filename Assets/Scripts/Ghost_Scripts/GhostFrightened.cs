@@ -57,9 +57,8 @@ public class GhostFrightened : GhostBehavior
         eatenScore.enabled = true;
 
         // Delay teleporting the ghost home
-        Invoke(nameof(TeleportHome), 0.2f);
-
-        Invoke(nameof(HideEatenScore), 0.2f);
+        Invoke(nameof(TeleportHome), 0.1f);
+        Invoke(nameof(HideEatenScore), 0.1f);
 
     }
 
