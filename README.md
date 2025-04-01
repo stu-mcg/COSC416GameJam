@@ -93,5 +93,10 @@ Want to run it in Unity?
 
 ---
 
+# Video demo on YouTube
+https://www.youtube.com/watch?v=pyO4LAcYlPk
+
+---
+
 
 © 2025 COSC416 Game Jam Team | Retro GameJam 🎉
